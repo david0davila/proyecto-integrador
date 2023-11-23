@@ -1,15 +1,18 @@
 @use "../abstracts/variables" as var;
 @use "../abstracts/mixins" as mix;
 
-$_padding: 0.5vw;
-
 body {
     display: grid;
     grid-template-areas:
         "header"
+        "navbar"
         "main"
         "footer";
 
-    padding: $_padding;
-    width: calc(100% - (2*$_padding));
+            /* Puedes ajustar la altura según tus necesidades */
+            // background: linear-gradient(to top, rgba(0, 128, 0, 0.945), rgba(0, 128, 0, 0));
+            // background: linear-gradient(to top, rgba(8, 149, 8, 0.8), rgba(144, 238, 144, 0));
+
+        // min-width: 100%;
+        // background-attachment: fixed;
 }

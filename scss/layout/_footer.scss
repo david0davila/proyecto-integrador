@@ -1,6 +1,36 @@
 @use "../abstracts/variables" as var;
 @use "../abstracts/mixins" as mix;
 
+$_padding: 1vw;
+
 .footer {
     grid-area: footer;
+
+    font-size: 17px;
+    height: 15vh;
+    gap: 1vw;
+
+    padding: $_padding;
+
+    background: linear-gradient(to top, rgba(8, 149, 8, 0.8), rgba(144, 238, 144, 0));
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    &__item {
+        color: black;
+        text-decoration: underline;
+        margin: 1vw;
+
+        &:hover {
+            color: rgba(0, 0, 0, 0.509);
+            text-decoration: none;
+        }
+    }
+
+    &__icon {
+        margin: 0.3vw;
+    }
 }

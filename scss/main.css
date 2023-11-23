@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +9,12 @@ ul {
   list-style: none;
 }
 
+a:visited,
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
 .button {
   border: 0.0625rem solid black;
   border-radius: 0.35rem;
@@ -18,65 +23,48 @@ ul {
   cursor: pointer;
 }
 .button--sm {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+  width: 6rem;
+  padding: 0.125rem;
+  font-size: 0.8rem;
 }
 .button--md {
   width: 9rem;
   padding: 0.25rem;
   font-size: 0.9rem;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
 }
 .button--lg {
   width: 12rem;
   padding: 0.375rem;
   font-size: 1rem;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
 }
 .button--add {
-  transition: all 150ms ease;
+  background-image: linear-gradient(white, white, white 65%);
+  border-color: blue;
+  color: blue;
+  transition: all 400ms;
 }
 .button--add:hover, .button--add:active {
-  border-color: green;
-  color: green;
+  background-image: linear-gradient(125deg, darkblue, blue, darkblue 65%);
+  border-color: blue;
+  color: blue;
 }
 .button--remove {
-  transition: all 150ms ease;
+  background-image: linear-gradient(white, white);
+  border-color: red;
+  color: red;
+  transition: all 400ms;
 }
 .button--remove:hover, .button--remove:active {
+  background-image: linear-gradient(125deg, darkred, red, darkred 65%);
   border-color: red;
   color: red;
 }
 
 .card {
-  padding: 0.6vw;
-}
-.card--product {
-  overflow: hidden;
-  text-align: center;
-  border-radius: 0.5vw;
-  background-color: rgba(245, 245, 245, 0.188);
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
-  width: 250px;
-  cursor: default;
-  transition: all 400ms ease;
-}
-.card--product:hover {
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
-  transform: translateY(-0.5%);
+  padding: 1vw;
 }
 .card__image {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-}
-.card__md {
-  width: 230px;
+  width: 25%;
 }
 .card__title {
   color: green;
@@ -120,8 +108,10 @@ ul {
 .slider__image {
   width: 160px;
   height: auto;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
   padding: 1vw;
 }
 @keyframes move-slide {
@@ -157,77 +147,43 @@ ul {
 body {
   display: grid;
   grid-template-areas: "header" "navbar" "main" "footer";
-  /* Puedes ajustar la altura según tus necesidades */
 }
 
 .footer {
   grid-area: footer;
-  font-size: 17px;
-  height: 15vh;
   gap: 1vw;
-  padding: 1vw;
-  background: linear-gradient(to top, rgba(8, 149, 8, 0.8), rgba(144, 238, 144, 0));
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.footer__item {
-  color: black;
-  text-decoration: underline;
-  margin: 1vw;
-}
-.footer__item:hover {
-  color: rgba(0, 0, 0, 0.509);
-  text-decoration: none;
-}
-.footer__icon {
-  margin: 0.3vw;
+  padding: 0.5vw;
+  width: calc(100% - 1vw);
 }
 
-@font-face {
-  font-family: France;
-  font-family: futbol;
-  font-family: Selcouth;
-  src: url("../../fonts/France.ttf");
-  src: url("../../fonts/futbol.ttf");
-  src: url("../../fonts/Selcouth.ttf");
-}
 .header {
   grid-area: header;
-  background: linear-gradient(to bottom, rgba(0, 128, 0, 0.945), rgba(0, 128, 0, 0));
+  background-color: green;
   height: 14vh;
   display: flex;
   justify-content: space-between;
   border-bottom: 7px solid;
-  border-image: linear-gradient(to right, greenyellow, white, greenyellow);
+  -o-border-image: linear-gradient(to right, greenyellow, white, greenyellow);
+     border-image: linear-gradient(to right, greenyellow, white, greenyellow);
   border-image-slice: 1;
 }
 
 .header__logo {
-  width: 17em;
-  height: 8em;
+  width: 13.7em;
+  height: 7em;
 }
 
 .header__title {
-  font-family: "Selcouth";
   position: absolute;
   color: whitesmoke;
-  top: 44px;
-  left: 4.5em;
-  font-size: 30px;
-  letter-spacing: 3px;
+  top: 40px;
+  left: 5em;
+  font-size: 22px;
 }
 
-@font-face {
-  font-family: France;
-  font-family: futbol;
-  font-family: Selcouth;
-  src: url("../../fonts/France.ttf");
-  src: url("../../fonts/futbol.ttf");
-  src: url("../../fonts/Selcouth.ttf");
-}
 .main {
   grid-area: main;
+  gap: 1vw;
   padding: 0.5vw;
   width: calc(100% - 1vw);
 }
@@ -237,22 +193,10 @@ body {
 .main .section--slider {
   overflow: hidden;
 }
-.main .section__h3 {
-  text-align: center;
-  font-size: 50px;
-  margin-bottom: 20px;
-  font-family: "Selcouth";
-  color: green;
-  letter-spacing: 2px;
-}
 .main .section--product {
-  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   gap: 1vw;
-  padding: 1vw;
 }
 
 .navbar {
@@ -270,15 +214,12 @@ body {
   margin-right: 1.5em;
   transition-property: color;
   color: black;
-  text-decoration: none;
 }
 .navbar__item:hover {
   color: whitesmoke;
-  transition-duration: 0.4s;
-  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  transition-duration: 0.5s;
 }
 .navbar__item--active {
   font-weight: bold;
-  color: black;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: whitesmoke;
 }/*# sourceMappingURL=main.css.map */

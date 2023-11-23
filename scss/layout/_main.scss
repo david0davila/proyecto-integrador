@@ -1,6 +1,50 @@
 @use "../abstracts/variables" as var;
 @use "../abstracts/mixins" as mix;
+@font-face {
+    font-family: France;
+    font-family: futbol;
+    font-family: Selcouth;
+    src: url("../../fonts/France.ttf");
+    src: url("../../fonts/futbol.ttf");
+    src: url("../../fonts/Selcouth.ttf");
+}
+
+$_padding: 0.5vw;
 
 .main {
     grid-area: main;
+    // gap: 1vw;
+
+    padding: $_padding;
+    width: calc(100% - (2*$_padding));
+
+    .section {
+        width: 100%;
+
+
+        &--slider {
+            overflow: hidden;
+        }
+
+        &__h3 {
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 20px;
+            font-family: "Selcouth";
+            color: green;
+            letter-spacing: 2px;
+            // text-transform: uppercase;
+        }
+
+        &--product {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1vw;
+            padding: 1vw;
+        }
+    }
 }
+
