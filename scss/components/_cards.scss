@@ -39,10 +39,27 @@
         }
 
         &__price {
+            padding-top: 0.5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
             color: blue;
 
             &::before {
                 content: "$ ";
             }
+        }
+
+        &__description {
+            font-size: 15px;
+
+            & ul li {
+                font-size: 15px;
+            }
+        }
+
+        &__counter {
+            font-size: 20px;
         }
 }

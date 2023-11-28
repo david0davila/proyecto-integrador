@@ -1,4 +1,11 @@
 @charset "UTF-8";
+:root {
+  --exito: #3ab65c;
+  --error: #bf333b;
+  --exito-hover: #2d8a46;
+  --error-hover: #962a31;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +18,6 @@ ul {
 }
 
 .button {
-  margin: 25px 3px 1px 3px;
   position: relative;
   cursor: pointer;
 }
@@ -35,12 +41,121 @@ ul {
   border: none;
   cursor: pointer;
 }
+.button__section a {
+  color: rgb(13, 4, 4);
+  padding: 0.3em calc(0.3em * 0.4);
+  display: inline-block;
+  border: 3px solid transparent;
+  position: relative;
+  font-size: 1.5em;
+  cursor: pointer;
+  letter-spacing: 0.07em;
+}
+.button__section a__text {
+  font-family: proxima-nova, monospace;
+  transform: translate3d(0, 0.3em, 0);
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1) 0.4s;
+}
+.button__section a:after {
+  position: absolute;
+  content: "";
+  bottom: -3px;
+  left: calc(0.3em * 0.4);
+  right: calc(0.3em * 0.4);
+  height: 3px;
+  background: #0e8008;
+  transition: transform 0.8s cubic-bezier(1, 0, 0.37, 1) 0.2s, right 0.2s cubic-bezier(0.04, 0.48, 0, 1) 0.6s, left 0.4s cubic-bezier(0.04, 0.48, 0, 1) 0.6s;
+  transform-origin: left;
+}
+.button__section .line {
+  position: absolute;
+  background: #0e8008;
+}
+.button__section .line.-right, .button__section .line.-left {
+  width: 3px;
+  bottom: -3px;
+  top: -3px;
+  transform: scale3d(1, 0, 1);
+}
+.button__section .line.-top, .button__section .line.-bottom {
+  height: 3px;
+  left: -3px;
+  right: -3px;
+  transform: scale3d(0, 1, 1);
+}
+.button__section .line.-right {
+  right: -3px;
+  transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.23s;
+  transform-origin: top;
+}
+.button__section .line.-top {
+  top: -3px;
+  transition: transform 0.08s linear 0.43s;
+  transform-origin: left;
+}
+.button__section .line.-left {
+  left: -3px;
+  transition: transform 0.08s linear 0.51s;
+  transform-origin: bottom;
+}
+.button__section .line.-bottom {
+  bottom: -3px;
+  transition: transform 0.3s cubic-bezier(1, 0, 0.65, 1.01);
+  transform-origin: right;
+}
+.button__section a:hover .text,
+.button__section a:active .text {
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1) 0.4s;
+}
+.button__section a:hover:after,
+.button__section a:active:after {
+  transform: scale3d(0, 1, 1);
+  right: -3px;
+  left: -3px;
+  transform-origin: right;
+  transition: transform 0.2s cubic-bezier(1, 0, 0.65, 1.01) 0.17s, right 0.2s cubic-bezier(1, 0, 0.65, 1.01), left 0s 0.3s;
+}
+.button__section a:hover .line,
+.button__section a:active .line {
+  transform: scale3d(1, 1, 1);
+}
+.button__section a:hover .line.-right,
+.button__section a:active .line.-right {
+  transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.2s;
+  transform-origin: bottom;
+}
+.button__section a:hover .line.-top,
+.button__section a:active .line.-top {
+  transition: transform 0.08s linear 0.4s;
+  transform-origin: right;
+}
+.button__section a:hover .line.-left,
+.button__section a:active .line.-left {
+  transition: transform 0.08s linear 0.48s;
+  transform-origin: top;
+}
+.button__section a:hover .line.-bottom,
+.button__section a:active .line.-bottom {
+  transition: transform 0.5s cubic-bezier(0, 0.53, 0.29, 1) 0.56s;
+  transform-origin: left;
+}
 .button--add {
+  margin: 25px 3px 1px 3px;
   transition: all 150ms ease;
 }
 .button--add:hover, .button--add:active {
-  border-color: green;
-  color: green;
+  border-color: rgb(10, 175, 10);
+  color: rgb(10, 176, 10);
+}
+.button--remove {
+  transition: all 150ms ease;
+  margin: 25px 0px 0px 3px;
+}
+.button--remove:hover, .button--remove:active {
+  border-color: red;
+  color: red;
 }
 .button--tooltip {
   visibility: hidden;
@@ -60,13 +175,6 @@ ul {
 .button:hover .button--tooltip {
   visibility: visible;
   opacity: 1;
-}
-.button--remove {
-  transition: all 150ms ease;
-}
-.button--remove:hover, .button--remove:active {
-  border-color: red;
-  color: red;
 }
 
 .card {
@@ -98,10 +206,24 @@ ul {
   color: green;
 }
 .card__price {
+  padding-top: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
   color: blue;
 }
 .card__price::before {
   content: "$ ";
+}
+.card__description {
+  font-size: 15px;
+}
+.card__description ul li {
+  font-size: 15px;
+}
+.card__counter {
+  font-size: 20px;
 }
 
 .slider {
@@ -198,6 +320,7 @@ body {
 }
 .footer__icon {
   margin: 0.3vw;
+  cursor: pointer;
 }
 
 @font-face {
@@ -242,6 +365,48 @@ body {
   src: url("../../fonts/futbol.ttf");
   src: url("../../fonts/Selcouth.ttf");
 }
+.section--form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  margin: 10px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: rgba(49, 147, 7, 0.3058823529);
+  box-shadow: 10px 10px 15px 1px rgba(0, 0, 0, 0.6);
+}
+.section--form label {
+  display: block;
+  margin-bottom: 8px;
+}
+.section--form input[type=text],
+.section--form input[type=number],
+.section--form textarea,
+.section--form input[type=file] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+.section--form input[type=checkbox] {
+  margin-bottom: 12px;
+}
+.section--form button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.section--form button:hover {
+  background-color: #45a049;
+}
+
 .main {
   grid-area: main;
   padding: 0.5vw;
@@ -261,6 +426,27 @@ body {
   color: green;
   letter-spacing: 2px;
 }
+.main .section__h3 span {
+  font-family: "Selcouth";
+  color: black;
+}
+.main .section__form {
+  display: flex;
+  justify-content: space-around;
+  font-size: 22px;
+}
+.main .section__form--input {
+  font-family: proxima-nova, monospace;
+  height: 1.7em;
+  width: 15em;
+}
+.main .section__form--input::placeholder {
+  text-align: end;
+  padding-right: 2px;
+}
+.main .section__label {
+  font-family: proxima-nova, monospace;
+}
 .main .section--product {
   width: 100%;
   display: flex;
@@ -269,6 +455,216 @@ body {
   align-items: center;
   gap: 1vw;
   padding: 1vw;
+}
+.main .section--about {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2vw;
+}
+.main .section--about--vision {
+  padding: 1vw;
+}
+.main .section--about--vision p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666;
+}
+.main .section--about--vision ol {
+  margin-top: 10px;
+  padding-left: 20px;
+  list-style-type: square;
+}
+.main .section--about--vision ol li {
+  font-size: 20px;
+  color: #888;
+}
+.main .section--about--vision video {
+  width: 50%;
+  height: auto;
+  margin-top: 10px;
+}
+.main .section--about--vision:nth-child(2) p {
+  font-weight: bold;
+}
+.main .section--about h3 {
+  font-size: 50px;
+  font-family: "Selcouth";
+  color: green;
+}
+.main .section--about h3 span {
+  font-family: "Selcouth";
+  color: black;
+}
+.main .section__contact {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5em;
+}
+.main .section__contact .logo {
+  text-align: center;
+  font-size: 3em;
+  font-family: "Selcouth";
+}
+.main .section__contact .logo span {
+  color: green;
+  font-family: "Selcouth";
+}
+.main .section__contact > * {
+  padding: 1em;
+}
+.main .section__contact .contact-info {
+  background-color: rgba(49, 147, 7, 0.3058823529);
+  padding: 1em;
+}
+.main .section__contact .contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+.main .section__contact .contact-info h4, .main .section__contact .contact-info ul, .main .section__contact .contact-info p {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+.main .section__contact .contact-form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.main .section__contact .contact-form form form label {
+  display: block;
+}
+.main .section__contact .contact-form form button, .main .section__contact .contact-form form input, .main .section__contact .contact-form form textarea {
+  width: 100%;
+  padding: 0.7em;
+  border: none;
+  background: none;
+  outline: 0;
+  color: #0b0a0a;
+  border-bottom: 1px solid rgba(49, 147, 7, 0.3058823529);
+}
+.main .section__contact .contact-form form p {
+  margin: 0;
+  padding: 1em;
+}
+.main .section__contact .contact-form form .block {
+  grid-column: 1/3;
+}
+.main .section__contact .contact-form form button {
+  background: rgba(49, 147, 7, 0.3058823529);
+  border: 0;
+  text-transform: uppercase;
+  padding: 1em;
+}
+.main .section__contact .contact-form button:hover, .main .section__contact .contact-form button:focus {
+  background: rgba(37, 99, 10, 0.8078431373);
+  color: #fff;
+  transition: background-color 1s ease-out;
+  outline: 0;
+}
+.main .section textarea {
+  resize: vertical;
+}
+.main .contenedor-toast {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+}
+.main .toast {
+  background: var(--exito);
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  overflow: hidden;
+  animation-name: apertura;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
+  position: relative;
+}
+.main .toast.exito {
+  background: var(--exito);
+}
+.main .toast.error {
+  background: var(--error);
+}
+.main .toast .contenido {
+  display: grid;
+  grid-template-columns: 30px auto;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+}
+.main .toast .icono {
+  color: rgba(0, 0, 0, 0.4);
+}
+.main .toast .titulo {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.main .toast .btn-cerrar {
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  padding: 0px 5px;
+  transition: 0.3s ease all;
+}
+.main .toast .btn-cerrar:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+.main .toast .btn-cerrar .icono {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+}
+@keyframes apertura {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.main .toast.cerrando {
+  animation-name: cierre;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes cierre {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(100% + 40px));
+  }
+}
+.main .toast.autoCierre::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  animation-name: autoCierre;
+  animation-duration: 5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes autoCierre {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
 }
 
 .navbar {

@@ -24,7 +24,7 @@
                 <li><a href="/index.html" class="navbar__item navbar__item--active">Home</a></li>
                 <li><a href="./about.html" class="navbar__item">Nosotros</a></li>
                 <li><a href="./contact.html" class="navbar__item">Contacto</a></li>
-                <li><a href="#" class="navbar__item"><span class="material-symbols-outlined">
+                <li><a href="#" class="navbar__item navbar__kart"><span class="material-symbols-outlined">
                     shopping_cart
                 </span></a></li>
             </ul>
@@ -37,7 +37,7 @@
             <div class="slider">
                 <div class="slider__one">
                     <div>
-                        <h4 class="slider__title">Primer Slide</h4>
+                        <h4 class="slider__title">La pelota no se mancha</h4>
                         <p class="slider__description">9 cuotas SIN INTERES</p>
                     </div>
                     <img class="slider__image" src="./images/sliders/slider-pelota.png" alt="x">
@@ -45,15 +45,15 @@
 
                 <div class="slider__two">
                     <div>
-                        <h4 class="slider__title">Segundo Slide</h4>
-                        <p class="slider__description">2x1 en sleccionados</p>
+                        <h4 class="slider__title">Para arqueros!</h4>
+                        <p class="slider__description">2x1 en seleccionados</p>
                     </div>
                     <img class="slider__image" src="./images/sliders/slider-guantes.png" alt="x">
                 </div>
 
                 <div class="slider__three">
                     <div>
-                        <h4 class="slider__title">Tercer Slide</h4>
+                        <h4 class="slider__title">Promos en botines</h4>
                         <p class="slider__description">Hasta 20% OFF</p>
                     </div>
                     <img class="slider__image" src="./images/sliders/slider-botines.png" alt="x">
@@ -62,9 +62,24 @@
         </section>
 
         <section class="section">
-            <span></span><h3 class="section__h3">Nuestros productos</h3>
+            <span></span><h3 class="section__h3"><span>Nuestros</span> productos</h3>
 
-            <div class="section__form">Formulario de búsqueda y link para crear nuevo producto</div>
+            <div class="section__form">
+                <form action="">
+                    <label for="buscar" class="section__label">Buscá tu producto</label>
+                    <input type="text" class="section__form--input" placeholder="Ingrese filtro" name="buscar" id="buscar">
+                </form>
+
+                <button class="button button--sm button__section">
+                    <a href="./product.html" class="button--a">
+                        <span class="button__text">Nuevo producto</span>
+                        <span class="line -right"></span>
+                        <span class="line -top"></span>
+                        <span class="line -left"></span>
+                        <span class="line -bottom"></span>
+                    </a>
+                </button>
+            </div>
         </section>
 
         <section class="section section--product">
@@ -72,10 +87,16 @@
 
             <figure class="card card--product">
                 <img class="card__image" src="./images/galery/product-botines-1.png" alt=" breve descrip de foto">
-                <h4 class="card__title">Botines Nike Celestes</h4>
-                <p class="card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                <h4 class="card__title">Botines Nike Mercurial</h4>
+                <p class="card__description">
+                    <ul>
+                        <li>Horma clásica</li>
+                        <li>Color: celeste</li>
+                        <li>Tipo: Fútbol 11</li>
+                    </ul>
+                </p>
                 <div>
-                    <span class="card__price">5499,99</span>
+                    <span class="card__price">20000,00</span>
                     <button class="button button--sm button--add">
                         <span class="material-symbols-outlined">add_circle</span>
                         <span class="button--tooltip">agregar</span>
@@ -90,10 +111,16 @@
 
             <figure class="card card--product">
                 <img class="card__image" src="./images/galery/product-botines-2.png" alt=" breve descrip de foto">
-                <h4 class="card__title">Botines Nike Rojos</h4>
-                <p class="card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                <h4 class="card__title">Botines Nike Invictus</h4>
+                <p class="card__description">
+                    <ul>
+                        <li>Horma grande</li>
+                        <li>Color: varios</li>
+                        <li>Tipo: Fútbol 11</li>
+                    </ul>
+                </p>
                 <div>
-                    <span class="card__price">5499,99</span>
+                    <span class="card__price">22499,99</span>
                     <button class="button button--sm button--add">
                         <span class="material-symbols-outlined">add_circle</span>
                         <span class="button--tooltip">agregar</span>
@@ -108,10 +135,16 @@
 
             <figure class="card card--product">
                 <img class="card__image" src="./images/galery/product-botines-3.png" alt=" breve descrip de foto">
-                <h4 class="card__title">Botines Adidas Verdes</h4>
-                <p class="card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                <h4 class="card__title">Botines Adidas Predator</h4>
+                <p class="card__description">
+                    <ul>
+                        <li>Horma clásica</li>
+                        <li>Color: verde</li>
+                        <li>Tipo: Fútbol 5/11</li>
+                    </ul>
+                </p>
                 <div>
-                    <span class="card__price">5499,99</span>
+                    <span class="card__price">28699,99</span>
                     <button class="button button--sm button--add">
                         <span class="material-symbols-outlined">add_circle</span>
                         <span class="button--tooltip">agregar</span>
@@ -126,10 +159,11 @@
 
             <figure class="card card--product">
                 <img class="card__image " src="./images/galery/product-guantes-1.png" alt=" breve descrip de foto">
-                <h4 class="card__title">Guantes Nike Celestes</h4>
-                <p class="card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                <h4 class="card__title">Guantes Nike Match</h4>
+                <p class="card__description">Los guantes Nike Match tienen espuma para brindar amortiguación y le permite agarrar
+                la pelota en condiciones húmedas o secas.</p>
                 <div>
-                    <span class="card__price">5499,99</span>
+                    <span class="card__price">6499,99</span>
                     <button class="button button--sm button--add">
                         <span class="material-symbols-outlined">add_circle</span>
                         <span class="button--tooltip">agregar</span>
@@ -144,10 +178,11 @@
 
             <figure class="card card--product">
                 <img class="card__image card__md" src="./images/galery/product-guantes-2.png" alt=" breve descrip de foto">
-                <h4 class="card__title">Guantes Puma</h4>
-                <p class="card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                <h4 class="card__title">Guantes Puma Training</h4>
+                <p class="card__description">La espuma en la palma proporciona una amortiguación suave.
+                La superficie lisa de la palma lo ayuda a agarrar la pelota en climas húmedos o secos.</p>
                 <div>
-                    <span class="card__price">5499,99</span>
+                    <span class="card__price">4799,99</span>
                     <button class="button button--sm button--add">
                         <span class="material-symbols-outlined">add_circle</span>
                         <span class="button--tooltip">agregar</span>
@@ -162,8 +197,9 @@
 
             <figure class="card card--product">
                 <img class="card__image" src="./images/galery/product-guantes-3.png" alt=" breve descrip de foto">
-                <h4 class="card__title">Guantes Adidas</h4>
-                <p class="card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                <h4 class="card__title">Guantes Adidas Great</h4>
+                <p class="card__description">Tela de red en los lados de los dedos que crea transpirabilidad.
+                Costura inversa en la parte posterior de la mano crea un calce perfecto.</p>
                 <div>
                     <span class="card__price">5499,99</span>
                     <button class="button button--sm button--add">
@@ -180,10 +216,16 @@
 
             <figure class="card card--product">
                 <img class="card__image card__md" src="./images/galery/product-pelota-1.png" alt=" breve descrip de foto">
-                <h4 class="card__title">Pelota Adidas</h4>
-                <p class="card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                <h4 class="card__title">Pelota Adidas SM</h4>
+                <p class="card__description">
+                <ul>
+                    <li>Género: unisex</li>
+                    <li>Color: verde</li>
+                    <li>Deporte: fútbol</li>
+                </ul>
+                </p>
                 <div>
-                    <span class="card__price">5499,99</span>
+                    <span class="card__price">15499,99</span>
                     <button class="button button--sm button--add">
                         <span class="material-symbols-outlined">add_circle</span>
                         <span class="button--tooltip">agregar</span>
@@ -199,9 +241,15 @@
             <figure class="card card--product">
                 <img class="card__image" src="./images/galery/product-pelota-2.png" alt=" breve descrip de foto">
                 <h4 class="card__title">Pelota Nike Inter</h4>
-                <p class="card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                <p class="card__description">
+                <ul>
+                    <li>Género: unisex</li>
+                    <li>Color: Inter Milan</li>
+                    <li>Deporte: fútbol</li>
+                </ul>
+                </p>
                 <div>
-                    <span class="card__price">5499,99</span>
+                    <span class="card__price">18999,99</span>
                     <button class="button button--sm button--add">
                         <span class="material-symbols-outlined">add_circle</span>
                         <span class="button--tooltip">agregar</span>
@@ -216,10 +264,16 @@
 
             <figure class="card card--product">
                 <img class="card__image" src="./images/galery/product-pelota-3.png" alt=" breve descrip de foto">
-                <h4 class="card__title">Pelota Nike</h4>
-                <p class="card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                <h4 class="card__title">Pelota Nike Fulbo</h4>
+                <p class="card__description">
+                <ul>
+                    <li>Género: unisex</li>
+                    <li>Color: varios</li>
+                    <li>Deporte: fútbol</li>
+                </ul>
+                </p>
                 <div>
-                    <span class="card__price">5499,99</span>
+                    <span class="card__price">11499,99</span>
                     <button class="button button--sm button--add">
                         <span class="material-symbols-outlined">add_circle</span>
                         <span class="button--tooltip">agregar</span>
@@ -237,7 +291,7 @@
                 <h4 class="card__title">Camiseta Adidas</h4>
                 <p class="card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                 <div>
-                    <span class="card__price">5499,99</span>
+                    <span class="card__price">12299,99</span>
                     <button class="button button--sm button--add">
                         <span class="material-symbols-outlined">add_circle</span>
                         <span class="button--tooltip">agregar</span>
@@ -255,7 +309,7 @@
                 <h4 class="card__title">Camiseta Nike</h4>
                 <p class="card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                 <div>
-                    <span class="card__price">5499,99</span>
+                    <span class="card__price">13499,99</span>
                     <button class="button button--sm button--add">
                         <span class="material-symbols-outlined">add_circle</span>
                         <span class="button--tooltip">agregar</span>
@@ -273,7 +327,7 @@
                 <h4 class="card__title">Camiseta Puma</h4>
                 <p class="card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                 <div>
-                    <span class="card__price">5499,99</span>
+                    <span class="card__price">10099,99</span>
                     <button class="button button--sm button--add">
                         <span class="material-symbols-outlined">add_circle</span>
                         <span class="button--tooltip">agregar</span>

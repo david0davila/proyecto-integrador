@@ -2,7 +2,6 @@
 @use "../abstracts/mixins" as mix;
 
 .button {
-    margin: 25px 3px 1px 3px;
     position: relative;
     cursor: pointer;
 
@@ -30,15 +29,159 @@
     }
 
 
-    &--add {
+        $thick : 3px;
+        $pad : 0.3em;
+        $extra : calc(#{$pad} * 0.4);
+        $color : #0e8008;
 
+    &__section {
+        a {
+            color: rgb(13, 4, 4);
+            padding: $pad $extra;
+            display: inline-block;
+            border: $thick solid transparent;
+            position: relative;
+            font-size: 1.5em;
+            cursor: pointer;
+            letter-spacing: 0.07em;
+
+            &__text {
+                // padding: 0 0.3em;
+                font-family: proxima-nova, monospace;
+                transform: translate3d(0, $pad, 0);
+                display: block;
+                transition: transform 0.4s cubic-bezier(.2, 0, 0, 1) 0.4s;
+            }
+
+            &:after {
+                position: absolute;
+                content: '';
+                bottom: -$thick;
+                left: $extra;
+                right: $extra;
+                height: $thick;
+                background: $color;
+                // z-index: -1;
+                transition:
+                transform 0.8s cubic-bezier(1, 0, .37, 1) 0.2s,
+                right 0.2s cubic-bezier(.04, .48, 0, 1) 0.6s,
+                left 0.4s cubic-bezier(.04, .48, 0, 1) 0.6s;
+                transform-origin: left;
+            }
+
+        }
+
+        .line {
+            position: absolute;
+            background: $color;
+
+            &.-right,
+            &.-left {
+                width: $thick;
+                bottom: -$thick;
+                top: -$thick;
+                transform: scale3d(1, 0, 1);
+            }
+
+            &.-top,
+            &.-bottom {
+                height: $thick;
+                left: -$thick;
+                right: -$thick;
+                transform: scale3d(0, 1, 1);
+            }
+
+            &.-right {
+                right: -$thick;
+                transition: transform 0.1s cubic-bezier(1, 0, .65, 1.01) 0.23s;
+                transform-origin: top;
+            }
+
+            &.-top {
+                top: -$thick;
+                transition: transform 0.08s linear 0.43s;
+                transform-origin: left;
+            }
+
+            &.-left {
+                left: -$thick;
+                transition: transform 0.08s linear 0.51s;
+                transform-origin: bottom;
+            }
+
+            &.-bottom {
+                bottom: -$thick;
+                transition: transform 0.3s cubic-bezier(1, 0, .65, 1.01);
+                transform-origin: right;
+            }
+        }
+
+        a:hover,
+        a:active {
+
+            .text {
+                transform: translate3d(0, 0, 0);
+                transition: transform 0.6s cubic-bezier(.2, 0, 0, 1) 0.4s;
+            }
+
+            &:after {
+                transform: scale3d(0, 1, 1);
+                right: -$thick;
+                left: -$thick;
+                transform-origin: right;
+                transition:
+                transform 0.2s cubic-bezier(1, 0, .65, 1.01) 0.17s,
+                right 0.2s cubic-bezier(1, 0, .65, 1.01),
+                left 0s 0.3s;
+            }
+
+            .line {
+                transform: scale3d(1, 1, 1);
+
+                &.-right {
+                    transition: transform 0.1s cubic-bezier(1, 0, .65, 1.01) 0.2s;
+                    transform-origin: bottom;
+                }
+
+                &.-top {
+                    transition: transform 0.08s linear 0.4s;
+                    transform-origin: right;
+                }
+
+                &.-left {
+                    transition: transform 0.08s linear 0.48s;
+                    transform-origin: top;
+                }
+
+                &.-bottom {
+                    transition: transform 0.5s cubic-bezier(0, .53, .29, 1) 0.56s;
+                    transform-origin: left;
+                }
+            }
+
+        }
+    }
+
+
+    &--add {
+        margin: 25px 3px 1px 3px;
         transition: all 150ms ease;
         // @include mix.button-default(white, white, green);
 
         &:hover,
         &:active {
-            border-color: green;
-            color: green;
+            border-color: rgb(10, 175, 10);
+            color: rgb(10, 176, 10);
+        }
+    }
+
+    &--remove {
+        transition: all 150ms ease;
+        margin: 25px 0px 0px 3px;
+        &:hover,
+        &:active {
+            border-color: red;
+            color: red;
         }
     }
 
@@ -66,15 +209,5 @@
         opacity: 1;
     }
 
-
-    &--remove {
-        transition: all 150ms ease;
-
-        &:hover,
-        &:active {
-            border-color: red;
-            color: red;
-        }
-    }
 
 }

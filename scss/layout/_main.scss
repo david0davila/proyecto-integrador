@@ -10,6 +10,57 @@
 }
 
 $_padding: 0.5vw;
+$form-width: 600px;
+$main-color: #4caf50;
+$main-hover-color: #45a049;
+
+// Estilos del formulario product
+.section--form {
+    width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    max-width: $form-width;
+    margin: 10px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #3193074e;
+    box-shadow: 10px 10px 15px 1px rgba(0, 0, 0, 0.6);
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    input[type="file"] {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+    }
+
+    input[type="checkbox"] {
+        margin-bottom: 12px;
+    }
+
+    button {
+        padding: 10px;
+        background-color: $main-color;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $main-hover-color;
+        }
+    }
+}
 
 .main {
     grid-area: main;
@@ -33,7 +84,32 @@ $_padding: 0.5vw;
             font-family: "Selcouth";
             color: green;
             letter-spacing: 2px;
-            // text-transform: uppercase;
+            
+            & span {
+                font-family: "Selcouth";
+                color: black;
+            }
+        }
+
+        &__form {
+            display: flex;
+            justify-content: space-around;
+            font-size: 22px;
+
+            &--input {
+                font-family: proxima-nova, monospace;
+                height: 1.7em;
+                width: 15em
+            }
+
+            &--input::placeholder {
+                text-align: end;
+                padding-right: 2px;
+            }
+        }
+
+        &__label {
+            font-family: proxima-nova, monospace;
         }
 
         &--product {
@@ -45,6 +121,280 @@ $_padding: 0.5vw;
             gap: 1vw;
             padding: 1vw;
         }
-    }
-}
 
+        &--about{
+            display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            width: 100%;
+            padding: 2vw;
+
+            &--vision {
+                padding: 1vw;
+
+                & p {
+                        font-size: 16px;
+                        line-height: 1.5;
+                        color: #666;
+                    }
+
+                & ol {
+                    margin-top: 10px;
+                        padding-left: 20px;
+                        list-style-type: square;
+
+                    & li {
+                            font-size: 20px;
+                            color: #888;
+                        }
+                }
+                
+                
+
+                & video {
+                    width: 50%;
+                    height: auto;
+                    margin-top: 10px;
+                }
+
+                &:nth-child(2) p {
+                    font-weight: bold;
+                }
+            }
+
+            & h3 {
+                font-size: 50px;
+                font-family: "Selcouth";
+                color: green;
+
+                & span {
+                    font-family: "Selcouth";
+                    color: black;
+                }
+            }
+        }
+
+
+
+
+
+        &__contact {
+            max-width: 1170px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 1.5em;
+
+        .logo {
+            text-align: center;
+            font-size: 3em;
+            font-family: "Selcouth";
+
+            & span {
+                color: green;
+                font-family: "Selcouth";
+            }
+        }
+
+        & > * {
+            padding: 1em;
+        }
+
+        .contact-info {
+            background-color: #3193074e;
+            padding: 1em;
+
+            & ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            & h4,
+            & ul,
+            & p {
+                text-align: center;
+                margin: 0 0 1rem 0;
+            }
+        }
+
+        .contact-form {
+
+            & form {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                & form label {
+                        display: block;
+                    }
+
+                & button,
+                & input,
+                & textarea {
+                    width: 100%;
+                    padding: .7em;
+                    border: none;
+                    background: none;
+                    outline: 0;
+                    color: #0b0a0a;
+                    border-bottom: 1px solid #3193074e;
+                }
+
+                & p {
+                    margin: 0;
+                    padding: 1em;
+                }
+
+                & .block {
+                    grid-column: 1 / 3;
+                }
+            }
+
+
+        & form button {
+            background: #3193074e;
+            border: 0;
+            text-transform: uppercase;
+            padding: 1em;
+        }
+
+        & button:hover,
+        &  button:focus {
+            background: #25630ace;
+            color: #fff;
+            transition: background-color 1s ease-out;
+            outline: 0;
+        }
+
+        }
+
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+    }
+
+    .contenedor-toast {
+        position: fixed;
+        right: 40px;
+        bottom: 40px;
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+    
+    .toast {
+        background: var(--exito);
+        display: flex;
+        justify-content: space-between;
+        border-radius: 10px;
+        overflow: hidden;
+        animation-name: apertura;
+        animation-duration: 200ms;
+        animation-timing-function: ease-out;
+        position: relative;
+    }
+    
+    .toast.exito {
+        background: var(--exito);
+    }
+
+    .toast.error {
+        background: var(--error);
+    }
+
+    .toast .contenido {
+        display: grid;
+        grid-template-columns: 30px auto;
+        align-items: center;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .toast .icono {
+        color: rgba(0, 0, 0, 0.4);
+    }
+
+    .toast .titulo {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .toast .btn-cerrar {
+        background: rgba(0, 0, 0, 0.1);
+        border: none;
+        cursor: pointer;
+        padding: 0px 5px;
+        transition: 0.3s ease all;
+    }
+    
+    .toast .btn-cerrar:hover {
+        background: rgba(0, 0, 0, 0.3);
+    }
+    
+    .toast .btn-cerrar .icono {
+        width: 20px;
+        height: 20px;
+        color: #fff;
+    }
+    
+    @keyframes apertura {
+        from {
+            transform: translateY(100px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .toast.cerrando {
+        animation-name: cierre;
+        animation-duration: 200ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes cierre {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(calc(100% + 40px));
+        }
+    }
+
+    .toast.autoCierre::after {
+        content: '';
+        width: 100%;
+        height: 4px;
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        bottom: 0;
+        animation-name: autoCierre;
+        animation-duration: 5s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes autoCierre {
+        from {
+            width: 100%;
+        }
+
+        to {
+            width: 0%;
+        }
+    }
+
+
+
+
+
+    };
